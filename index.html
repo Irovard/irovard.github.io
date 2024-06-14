@@ -54,7 +54,7 @@
     <h1>Hey muffin. U wanna be my girlfriend? <333</h1>
 
     <div class="button-container">
-        <a href="https://www.yes-website.com" class="button" id="yesButton">Yes</a>
+        <a href="yes.html" class="button" id="yesButton">Yes</a>
         <a href="no.html" class="button" id="noButton">No</a> <!-- Removed 'noButton' class -->
     </div>
 
@@ -104,7 +104,7 @@
             var newY = Math.floor(Math.random() * maxY);
 
             // Check if the text will overlap with the title or buttons
-            if (newY < 60 || (newX > bodyWidth - 180 && newY < 140)) {
+            if (newY < 200 || (newX > bodyWidth - 180 && newY < 200)) {
                 // Recalculate positions to avoid overlapping
                 newX = Math.floor(Math.random() * maxX);
                 newY = Math.floor(Math.random() * maxY);
