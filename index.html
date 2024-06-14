@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>I love uuu <3333</title>
+    <title>I love uuuuu <33333</title>
     <style>
         body {
             font-family: 'Comic Sans MS', cursive; /* Cute font */
@@ -11,6 +11,9 @@
             text-align: center; /* Center align content */
             padding: 20px; /* Add padding for spacing */
             margin: 0; /* Remove default margin */
+            position: relative; /* Relative positioning for text */
+            overflow: hidden; /* Hide overflow to keep elements within visible area */
+            min-height: 100vh; /* Ensure full viewport height */
         }
         h1 {
             color: #ff69b4; /* Pinkish color for heading */
@@ -40,14 +43,19 @@
             height: 100%;
             z-index: -1;
         }
+        .background-text {
+            position: absolute;
+            color: #ff1493; /* Matching color for text */
+            font-size: 18px; /* Adjust font size as needed */
+        }
     </style>
 </head>
 <body>
     <h1>Hey muffin. U wanna be my girlfriend? <333</h1>
 
     <div class="button-container">
-        <a href="#" class="button" id="yesButton">Yes</a>
-        <a href="#" class="button" id="noButton">No</a> <!-- Removed 'noButton' class -->
+        <a href="https://www.yes-website.com" class="button" id="yesButton">Yes</a>
+        <a href="https://www.no-website.com" class="button" id="noButton">No</a> <!-- Removed 'noButton' class -->
     </div>
 
     <!-- SVG for flowers -->
@@ -85,6 +93,52 @@
             noButton.style.transition = 'left 1s, top 1s';
             noButton.style.left = newX + 'px';
             noButton.style.top = newY + 'px';
+        }
+
+        // JavaScript to add background text dynamically
+        for (var i = 0; i < 15; i++) {
+            createBackgroundText('i love u');
+            createBackgroundText('<333');
+        }
+
+        function createBackgroundText(textContent) {
+            var text = document.createElement('div');
+            text.textContent = textContent;
+            text.classList.add('background-text');
+            positionText(text); // Position text initially
+
+            // Position text when the window is resized
+            window.addEventListener('resize', function() {
+                positionText(text);
+            });
+
+            document.body.appendChild(text);
+        }
+
+        function positionText(textElement) {
+            var textWidth = textElement.offsetWidth;
+            var textHeight = textElement.offsetHeight;
+
+            var maxX = bodyWidth - textWidth;
+            var maxY = bodyHeight - textHeight;
+
+            var newX = Math.floor(Math.random() * maxX);
+            var newY = Math.floor(Math.random() * maxY);
+
+            // Check if the text will overlap with the title or buttons
+            if (newY < 60 || (newX > bodyWidth - 180 && newY < 140)) {
+                // Recalculate positions to avoid overlapping
+                newX = Math.floor(Math.random() * maxX);
+                newY = Math.floor(Math.random() * maxY);
+            }
+
+            textElement.style.left = newX + 'px';
+            textElement.style.top = newY + 'px';
+        }
+
+        // Function to get a random position within the body width or height
+        function getRandomPosition(max) {
+            return Math.floor(Math.random() * max);
         }
     </script>
 </body>
