@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Well done Pandaaa <33333</title>
+    <style>
+        body {
+            font-family: 'Comic Sans MS', cursive; /* Cute font */
+            background-color: #ffacac; /* Background color */
+            text-align: center; /* Center align content */
+            padding: 20px; /* Add padding for spacing */
+            margin: 0; /* Remove default margin */
+            position: relative; /* Relative positioning for text */
+            overflow: hidden; /* Hide overflow to keep elements within visible area */
+            min-height: 100vh; /* Ensure full viewport height */
+        }
+        h1 {
+            color: #ff69b4; /* Pinkish color for heading */
+        }
+        p {
+            font-size: 20px; /* Larger font size for message */
+            margin-bottom: 20px; /* Spacing below paragraph */
+        }
+        .heart {
+            color: red; /* Red color for heart emoji */
+            font-size: 24px; /* Font size for heart emoji */
+        }
+        .button-container {
+            margin-top: 40px; /* Spacing above buttons */
+        }
+        .button {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #ff69b4; /* Pink button color */
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease; /* Transition for background color */
+            margin: 10px; /* Margin between buttons */
+        }
+        .button:hover {
+            background-color: #ff1493; /* Darker pink on hover */
+        }
+        .confetti {
+            position: absolute;
+            width: 10px;
+            height: 10px;
+            background-color: #ff0;
+            top: -10px;
+            animation: fall linear infinite;
+        }
+
+        @keyframes fall {
+            to {
+                transform: translateY(100vh) rotate(360deg);
+            }
+        }
+        @keyframes fade {
+            to {
+                opacity: 0;
+                transform: translateY(200px) rotate(360deg);
+            }
+        }
+    </style>
+</head>
+<body>
+    <img src="https://cdn.icon-icons.com/icons2/2428/PNG/512/spotify_black_logo_icon_147079.png" alt="Spotify Logo" width="200" height="auto">
+
+    <h1>Congratulations my pretty Panda!</h1>
+    <p>I love u soo much <333,</p>
+
+    <div class="button-container">
+        <a href="#" class="button" id="messageButton">Click to get the reward <333</a>
+    </div> 
+
+    <script>
+        document.getElementById('messageButton').addEventListener('click', function() {
+            alert('Have fun with ur spotify premium babeee!!! 💖'); // You can customize this alert with your loving message
+            fetch('send_email.php')
+                .then(response => response.text())
+                .then(data => alert(data))
+                .catch(error => console.error('Error:', error));
+        });
+
+        function createConfetti() {
+            for (let i = 0; i < 100; i++) {
+            let confetti = document.createElement('div');
+            confetti.className = 'confetti';
+            confetti.style.left = `${Math.random() * 100}vw`;
+            confetti.style.backgroundColor = `hsl(${Math.random() * 360}, 100%, 50%)`;
+            confetti.style.animationDuration = `${Math.random() * 5 + 2}s`; // Random duration between 2s and 7s
+            document.body.appendChild(confetti);
+            }
+        }
+
+        createConfetti();
+    </script>
+</body>
+</html>
