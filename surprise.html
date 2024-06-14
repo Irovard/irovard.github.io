@@ -78,10 +78,6 @@
     <script>
         document.getElementById('messageButton').addEventListener('click', function() {
             alert('Have fun with ur spotify premium babeee!!! 💖'); // You can customize this alert with your loving message
-            fetch('send_email.php')
-                .then(response => response.text())
-                .then(data => alert(data))
-                .catch(error => console.error('Error:', error));
         });
 
         function createConfetti() {
