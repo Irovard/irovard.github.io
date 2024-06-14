@@ -51,12 +51,12 @@
     </style>
 </head>
 <body>
-    <h1>Hehe think about it again or i will not let u goooo moahahahaahha</h1>
+    <h1>Hehe think about it again (u have no choise) moahahahaahha</h1>
     <h1>U wanna be my girlfriend? <333</h1>
 
     <div class="button-container">
-        <a href="https://www.yes-website.com" class="button" id="yesButton">Yes</a>
-        <a href="https://www.yes-website.com" class="button" id="yesButton">Yes</a> <!-- Removed 'noButton' class -->
+        <a href="yes.html" class="button" id="yesButton">Yes</a>
+        <a href="yes.html" class="button" id="yesButton">Yes</a> <!-- Removed 'noButton' class -->
     </div>
 
     <!-- SVG for flowers -->
@@ -76,9 +76,11 @@
 
 
         // JavaScript to add background text dynamically
-        for (var i = 0; i < 10; i++) {
+        for (var i = 0; i < 5; i++) {
             createBackgroundText('i love u');
             createBackgroundText('<333');
+            createBackgroundText('Say yes');
+            createBackgroundText('u got no choise');
         }
 
         function createBackgroundText(textContent) {
@@ -106,7 +108,7 @@
             var newY = Math.floor(Math.random() * maxY);
 
             // Check if the text will overlap with the title or buttons
-            if (newY < 60 || (newX > bodyWidth - 180 && newY < 140)) {
+            if (newY < 200 || (newX > bodyWidth - 180 && newY < 200)) {
                 // Recalculate positions to avoid overlapping
                 newX = Math.floor(Math.random() * maxX);
                 newY = Math.floor(Math.random() * maxY);
