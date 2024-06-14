@@ -1,50 +1,91 @@
 <!DOCTYPE html>
-<html lang="de">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lux's Awesome Website</title>
+    <title>I love uuu <3333</title>
     <style>
         body {
-            font-family: Arial, sans-serif;
-            text-align: center;
-            background-color: #f0f0f0;
-            margin: 0;
-            padding: 0;
+            font-family: 'Comic Sans MS', cursive; /* Cute font */
+            background-color: #ffacac; /* Background color */
+            text-align: center; /* Center align content */
+            padding: 20px; /* Add padding for spacing */
+            margin: 0; /* Remove default margin */
         }
-        header {
-            background-color: #4CAF50;
+        h1 {
+            color: #ff69b4; /* Pinkish color for heading */
+        }
+        .button-container {
+            margin-top: 20px; /* Spacing above buttons */
+        }
+        .button {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #ff69b4; /* Pink button color */
             color: white;
-            padding: 1em 0;
+            text-decoration: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease; /* Transition for background color */
+            margin: 10px; /* Margin between buttons */
         }
-        main {
-            padding: 2em;
+        .button:hover {
+            background-color: #ff1493; /* Darker pink on hover */
         }
-        footer {
-            background-color: #4CAF50;
-            color: white;
-            padding: 1em 0;
-            position: fixed;
+        svg {
+            position: absolute;
+            top: 0;
+            left: 0;
             width: 100%;
-            bottom: 0;
+            height: 100%;
+            z-index: -1;
         }
     </style>
 </head>
 <body>
-    <header>
-        <h1>Willkommen auf Lux's Webseite!</h1>
-    </header>
-    <main>
-        <p>Hey, das ist meine erste Website! 🎉</p>
-        <p>Schau dir meinen coolen Inhalt an:</p>
-        <ul>
-            <li>Katzen sind großartig. 🐱</li>
-            <li>Kängurus sind cool. 🦘</li>
-            <li>Ich liebe meine Freundin. 💖</li>
-        </ul>
-    </main>
-    <footer>
-        <p>Erstellt von Lux - 2024</p>
-    </footer>
+    <h1>Hey muffin. U wanna be my girlfriend? <333</h1>
+
+    <div class="button-container">
+        <a href="#" class="button" id="yesButton">Yes</a>
+        <a href="#" class="button" id="noButton">No</a> <!-- Removed 'noButton' class -->
+    </div>
+
+    <!-- SVG for flowers -->
+    <svg viewBox="0 0 150 150" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="50" cy="55" r="30" fill="pink" />
+        <circle cx="95" cy="50" r="30" fill="pink" />
+        <circle cx="55" cy="95" r="30" fill="pink" />
+        <circle cx="100" cy="90" r="30" fill="pink" />
+        <circle cx="75" cy="75" r="25" fill="yellow" />
+        <circle cx="75" cy="75" r="15" fill="pink" />
+    </svg>
+
+    <script>
+        // JavaScript to handle button clicks and movement
+        document.getElementById('yesButton').addEventListener('click', function() {
+            alert('Yay! Thank you!');
+        });
+
+        var noButton = document.getElementById('noButton');
+        var bodyWidth = document.body.clientWidth;
+        var bodyHeight = document.body.clientHeight;
+
+        noButton.addEventListener('mouseover', moveButton);
+
+        function moveButton() {
+            // Calculate random positions within the visible viewport
+            var maxX = bodyWidth - noButton.offsetWidth; // Adjusted max X position considering button width
+            var maxY = bodyHeight - noButton.offsetHeight; // Adjusted max Y position considering button height
+
+            // Generate random coordinates
+            var newX = Math.floor(Math.random() * maxX);
+            var newY = Math.floor(Math.random() * maxY);
+
+            // Apply new coordinates to button with animation
+            noButton.style.transition = 'left 1s, top 1s';
+            noButton.style.left = newX + 'px';
+            noButton.style.top = newY + 'px';
+        }
+    </script>
 </body>
 </html>
