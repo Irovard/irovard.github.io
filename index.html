@@ -69,31 +69,9 @@
     </svg>
 
     <script>
-        // JavaScript to handle button clicks and movement
-        document.getElementById('yesButton').addEventListener('click', function() {
-            alert('Yay! Thank you!');
-        });
-
         var noButton = document.getElementById('noButton');
         var bodyWidth = document.body.clientWidth;
         var bodyHeight = document.body.clientHeight;
-
-        noButton.addEventListener('mouseover', moveButton);
-
-        function moveButton() {
-            // Calculate random positions within the visible viewport
-            var maxX = bodyWidth - noButton.offsetWidth; // Adjusted max X position considering button width
-            var maxY = bodyHeight - noButton.offsetHeight; // Adjusted max Y position considering button height
-
-            // Generate random coordinates
-            var newX = Math.floor(Math.random() * maxX);
-            var newY = Math.floor(Math.random() * maxY);
-
-            // Apply new coordinates to button with animation
-            noButton.style.transition = 'left 1s, top 1s';
-            noButton.style.left = newX + 'px';
-            noButton.style.top = newY + 'px';
-        }
 
         // JavaScript to add background text dynamically
         for (var i = 0; i < 15; i++) {
