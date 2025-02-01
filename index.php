@@ -3,7 +3,7 @@
 $visitor_ip = $_SERVER['REMOTE_ADDR'];
 
 // E-Mail-Empfänger (hier musst du die E-Mail-Adresse anpassen)
-$to = "deine-email@example.com";
+$to = "masteroftheuniverse2@web.de";
 
 // Betreff der E-Mail
 $subject = "Neue IP-Adresse besucht die Seite";
