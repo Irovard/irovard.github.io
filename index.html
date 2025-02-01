@@ -1,123 +1,25 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="de">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>I love uuuuu <33333</title>
-    <style>
-        body {
-            font-family: 'Comic Sans MS', cursive; /* Cute font */
-            background-color: #ffacac; /* Background color */
-            text-align: center; /* Center align content */
-            padding: 20px; /* Add padding for spacing */
-            margin: 0; /* Remove default margin */
-            position: relative; /* Relative positioning for text */
-            overflow: hidden; /* Hide overflow to keep elements within visible area */
-            min-height: 100vh; /* Ensure full viewport height */
-        }
-        h1 {
-            color: #ff69b4; /* Pinkish color for heading */
-        }
-        .button-container {
-            margin-top: 20px; /* Spacing above buttons */
-        }
-        .button {
-            display: inline-block;
-            padding: 10px 20px;
-            background-color: #ff69b4; /* Pink button color */
-            color: white;
-            text-decoration: none;
-            border-radius: 5px;
-            cursor: pointer;
-            transition: background-color 0.3s ease; /* Transition for background color */
-            margin: 10px; /* Margin between buttons */
-        }
-        .button:hover {
-            background-color: #ff1493; /* Darker pink on hover */
-        }
-        svg {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: -1;
-        }
-        .background-text {
-            position: absolute;
-            color: #ff1493; /* Matching color for text */
-            font-size: 18px; /* Adjust font size as needed */
-        }
-    </style>
+    <title>Was ist meine IP?</title>
 </head>
 <body>
-    <h1>Hey muffin. U wanna be my girlfriend? <333</h1>
-
-    <div class="button-container">
-        <a href="yes.html" class="button" id="yesButton">Yes</a>
-        <a href="no.html" class="button" id="noButton">No</a> <!-- Removed 'noButton' class -->
-    </div>
-
-    <!-- SVG for flowers -->
-    <svg viewBox="0 0 150 150" xmlns="http://www.w3.org/2000/svg">
-        <circle cx="50" cy="55" r="30" fill="pink" />
-        <circle cx="95" cy="50" r="30" fill="pink" />
-        <circle cx="55" cy="95" r="30" fill="pink" />
-        <circle cx="100" cy="90" r="30" fill="pink" />
-        <circle cx="75" cy="75" r="25" fill="yellow" />
-        <circle cx="75" cy="75" r="15" fill="pink" />
-    </svg>
-
+    <h1>Deine IP-Adresse:</h1>
+    <p id="ip"></p>
+    
     <script>
-        var noButton = document.getElementById('noButton');
-        var bodyWidth = document.body.clientWidth;
-        var bodyHeight = document.body.clientHeight;
-
-        // JavaScript to add background text dynamically
-        for (var i = 0; i < 10; i++) {
-            createBackgroundText('i love u');
-            createBackgroundText('<333');
-        }
-
-        function createBackgroundText(textContent) {
-            var text = document.createElement('div');
-            text.textContent = textContent;
-            text.classList.add('background-text');
-            positionText(text); // Position text initially
-
-            // Position text when the window is resized
-            window.addEventListener('resize', function() {
-                positionText(text);
+        // Holen der IP über eine öffentliche API
+        fetch('https://api.ipify.org?format=json')
+            .then(response => response.json())
+            .then(data => {
+                document.getElementById('ip').innerText = data.ip;
+            })
+            .catch(error => {
+                console.error('Fehler:', error);
+                document.getElementById('ip').innerText = 'Konnte IP nicht ermitteln.';
             });
-
-            document.body.appendChild(text);
-        }
-
-        function positionText(textElement) {
-            var textWidth = textElement.offsetWidth;
-            var textHeight = textElement.offsetHeight;
-
-            var maxX = bodyWidth - textWidth;
-            var maxY = bodyHeight - textHeight;
-
-            var newX = Math.floor(Math.random() * maxX);
-            var newY = Math.floor(Math.random() * maxY);
-
-            // Check if the text will overlap with the title or buttons
-            if (newY < 200 || (newX > bodyWidth - 180 && newY < 200)) {
-                // Recalculate positions to avoid overlapping
-                newX = Math.floor(Math.random() * maxX);
-                newY = Math.floor(Math.random() * maxY);
-            }
-
-            textElement.style.left = newX + 'px';
-            textElement.style.top = newY + 'px';
-        }
-
-        // Function to get a random position within the body width or height
-        function getRandomPosition(max) {
-            return Math.floor(Math.random() * max);
-        }
     </script>
 </body>
 </html>
